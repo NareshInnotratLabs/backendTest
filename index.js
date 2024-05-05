@@ -11,7 +11,9 @@ const app = express();
 const PORT = 4000;
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    credentials:"*"
+}))
 
 app.get("/", function (req, res) {
     res.status(200).send("Hello World")
