@@ -3,7 +3,9 @@ import * as dotenv from "dotenv";
 dotenv.config()
 import connectDB from "./connectDB.js";
 import cors from "cors";
-import users from "./routes/userRoutes.js" 
+import users from "./routes/userRoutes.js";
+import interview from "./routes/interviewRoutes.js";
+
 
 const app = express();
 const PORT = 4000;
@@ -16,6 +18,7 @@ app.get("/", function (req, res) {
 })
 
 app.use("/user", users);
+app.use("/interview", interview);
 
 const startserver = async () => {
     await connectDB();
